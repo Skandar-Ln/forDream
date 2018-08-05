@@ -5,7 +5,7 @@ import 'moment/locale/zh-cn';
 
 moment.locale('zh-cn');
 
-const startDay = moment('2018-8-5');
+const startDay = moment('2018-8-5', 'YYYY-MM-DD');
 const startWeight = 91;
 
 function computeWeight(day) {
