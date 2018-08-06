@@ -7,6 +7,8 @@ moment.locale('zh-cn');
 
 const startDay = moment('2018-8-5', 'YYYY-MM-DD');
 const startWeight = 91;
+const pastDays = 5;
+const futureDays = 15;
 
 function computeWeight(day) {
     const diff = day.diff(startDay, 'day');
@@ -32,9 +34,6 @@ class TargetLine extends Component {
     }
 
     render() {
-        const pastDays = 6;
-        const futureDays = 10;
-
         return (
             <Timeline>
                 {new Array(pastDays).fill('pastDays').map((value, index) => {
