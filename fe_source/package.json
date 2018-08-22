@@ -14,7 +14,7 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "scp -r build/* root@bulibuli.wang:src/www/forDream/"
+    "deploy": "yarn build && scp -r build/* root@bulibuli.wang:src/www/forDream/"
   },
   "devDependencies": {
     "babel-plugin-import": "^1.8.0",
