@@ -9,17 +9,18 @@ const startDay = moment('2018-8-22', 'YYYY-MM-DD');
 const startWeight = 93.5;
 const pastDays = 5;
 const futureDays = 15;
+const daysPerPointKilo = 1.5;
 
 function computeWeight(day) {
     const diff = day.diff(startDay, 'day');
-    const shouldAddWeight =  Math.floor(diff / 3);
+    const shouldAddWeight =  Math.floor(diff / daysPerPointKilo);
     return startWeight + shouldAddWeight * 0.1;
 }
 
 function TargetItem({date}) {
     return (
         <div style={{overflow: 'hidden'}}>
-            <span style={{float: 'left', marginLeft: 10}}>{date.format("MMM DD YY")}</span>
+            <span style={{float: 'left', marginLeft: 10}}>{date.format("MMM DD - YYYY")}</span>
             <Tag color="orange">
                 {computeWeight(date).toFixed(1)}kg
             </Tag>
@@ -59,6 +60,9 @@ class TargetLine extends Component {
                         </Timeline.Item>
                     )
                 })}
+                <Timeline.Item dot={<Icon type="skin" style={{ fontSize: '20px' }} />} color="green">
+                    <TargetItem date={moment('2019-04-01', 'YYYY-MM-DD')} />
+                </Timeline.Item>
             </Timeline>
         );
     }
