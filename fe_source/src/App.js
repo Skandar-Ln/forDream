@@ -6,15 +6,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TargetLine />
-        <div style={{textAlign: 'left'}}>
-          <p>your基础代谢率 5,246 千焦</p>
-          <h4>跳级</h4>
-          <p>
-            91.5 -> 93.5 <span style={{color: 'red'}}>+2</span>
-            <span style={{float: 'right'}}>18/8/22</span>
-          </p>
+        <h3>我的梦想是长胖30斤！！</h3>
+        <h4>焦るな！</h4>
+        <p>start: 91斤 2018-8-5</p>
+        <div style={{textAlign: 'center'}}>
+          <TargetLine />
         </div>
+        <p>your基础代谢率 5,246 千焦</p>
+        <h4>跳级</h4>
+        <p>
+          91.5 -> 93.5 <span style={{color: 'red'}}>+2</span>
+          <span style={{float: 'right'}}>18/8/22</span>
+        </p>
       </div>
     );
   }
