@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h3>我的梦想是长胖30斤！！</h3>
+        <h3>梦想是长胖30斤！！</h3>
         <h4>焦るな！</h4>
         <p>start: 91斤 2018-8-5</p>
         <div style={{textAlign: 'center'}}>
