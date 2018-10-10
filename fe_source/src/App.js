@@ -18,6 +18,10 @@ class App extends Component {
           91.5 -> 93.5 <span style={{color: 'red'}}>+2</span>
           <span style={{float: 'right'}}>18/8/22</span>
         </p>
+        <p>
+          96.7 -> 98 <span style={{color: 'red'}}>+1.3</span>
+          <span style={{float: 'right'}}>18/10/10</span>
+        </p>
       </div>
     );
   }
