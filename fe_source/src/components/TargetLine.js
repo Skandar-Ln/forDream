@@ -5,8 +5,8 @@ import 'moment/locale/zh-cn';
 
 moment.locale('zh-cn');
 
-const startDay = moment('2018-10-10', 'YYYY-MM-DD');
-const startWeight = 98;
+const startDay = moment('2018-08-22', 'YYYY-MM-DD');
+const startWeight = 93.5;
 const pastDays = 5;
 const futureDays = 15;
 const daysPerPointKilo = 1.5;
