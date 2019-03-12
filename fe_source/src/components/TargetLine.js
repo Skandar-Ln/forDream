@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import {Timeline, Icon, Tag} from 'antd';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+import { calBMI } from '../util';
 
 moment.locale('zh-cn');
 
-const startDay = moment('2018-08-22', 'YYYY-MM-DD');
-const startWeight = 93.5;
+const startDay = moment('2018-08-05', 'YYYY-MM-DD');
+const startWeight = 91;
 const pastDays = 5;
 const futureDays = 15;
-const daysPerPointKilo = 1.5;
+const daysPerPointKilo = 3;
 
 function computeWeight(day) {
     const diff = day.diff(startDay, 'day');
@@ -19,16 +20,21 @@ function computeWeight(day) {
 
 function computeDate(weight) {
     const diff = weight - startWeight;
-    const diffDay = Math.ceil(diff * 10 * 1.5);
+    const diffDay = Math.ceil(diff * 10 * daysPerPointKilo);
     return startDay.clone().add(diffDay, 'day');
 }
 
 function TargetItem({date}) {
+    const weight = computeWeight(date);
+    const bmi = calBMI(weight / 2);
     return (
         <div style={{overflow: 'hidden'}}>
             <span style={{float: 'left', marginLeft: 10}}>{date.format("MMM DD - YYYY")}</span>
             <Tag color="orange">
-                {computeWeight(date).toFixed(1)}斤
+                {weight.toFixed(1)}斤
+            </Tag>
+            <Tag color={bmi >= 18.5 ? 'green' : 'blue'}>
+                {bmi.toFixed(1)}
             </Tag>
         </div>
     )
@@ -67,10 +73,10 @@ class TargetLine extends Component {
                     )
                 })}
                 <Timeline.Item dot={<Icon type="trophy" style={{ fontSize: '20px', color: "gold" }} />}>
-                    <TargetItem date={computeDate(100)} />
+                    <TargetItem date={computeDate(104.6)} />
                 </Timeline.Item>
                 <Timeline.Item dot={<Icon type="skin" style={{ fontSize: '20px', color: "green" }} />}>
-                    <TargetItem date={moment('2019-04-01', 'YYYY-MM-DD')} />
+                    <TargetItem date={moment('2019-07-08', 'YYYY-MM-DD')} />
                 </Timeline.Item>
             </Timeline>
         );
