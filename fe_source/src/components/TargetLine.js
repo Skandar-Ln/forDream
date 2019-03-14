@@ -10,7 +10,7 @@ const startDay = moment('2018-08-05', 'YYYY-MM-DD');
 const startWeight = 91;
 const pastDays = 5;
 const futureDays = 15;
-const daysPerPointKilo = 3;
+const daysPerPointKilo = 2;
 
 function computeWeight(day) {
     const diff = day.diff(startDay, 'day');
